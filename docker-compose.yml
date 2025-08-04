@@ -7,15 +7,6 @@ services:
     ports:
       - "80:80"
     volumes:
-      - html_volume:/usr/share/nginx/html  # Именованный том для HTML
-      - nginx_config:/etc/nginx/conf.d/default.conf  # Именованный том для конфига
+      - ./html:/usr/share/nginx/html  # Монтируем папку html
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf  # Монтируем файл конфига
     restart: unless-stopped
-
-volumes:
-  html_volume:  # Явное объявление тома для HTML
-  nginx_config:  # Явное объявление тома для конфига
-    driver: local
-    driver_opts:
-      type: none
-      device: ./nginx/nginx.conf  # Указываем путь к файлу
-      o: bind
