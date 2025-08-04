@@ -7,8 +7,10 @@ services:
       - "80:80"
     volumes:
       - type: bind
-        source: /data/compose/{{.Stack.ID}}/html  # Магический путь Portainer
+        source: /data/compose/{{.Stack.ID}}/www
         target: /usr/share/nginx/html
+        read_only: true
       - type: bind
-        source: /data/compose/{{.Stack.ID}}/nginx.conf
-        target: /etc/nginx/conf.d/default.conf
+        source: /data/compose/{{.Stack.ID}}/nginx/nginx.conf
+        target: /etc/nginx/nginx.conf
+        read_only: true
