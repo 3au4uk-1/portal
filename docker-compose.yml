@@ -3,6 +3,7 @@ version: '3'
 services:
   web:
     image: nginx:alpine
+    user: "nginx:nginx"
     container_name: my-webpage
     ports:
       - "80:80"
