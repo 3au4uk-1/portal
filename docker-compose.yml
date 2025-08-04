@@ -5,6 +5,20 @@ services:
     ports:
       - "80:80"
     volumes:
-    -  ./html:/usr/share/nginx/html
-    - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - html_volume:/usr/share/nginx/html
+      - conf_volume:/etc/nginx/conf.d
     restart: unless-stopped
+
+volumes:
+  html_volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./html
+      o: bind
+  conf_volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./conf
+      o: bind
