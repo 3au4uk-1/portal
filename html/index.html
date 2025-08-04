@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма сбора данных - Продуктовые направления</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Форма сбора данных по продуктовым направлениям</h1>
+        </header>
+        
+        <form id="dataForm" class="form">
+            <!-- Базовая информация -->
+            <section class="form-section">
+                <h2>Основная информация</h2>
+                
+                <div class="form-group">
+                    <label for="company">Компания *</label>
+                    <select id="company" name="company" required>
+                        <option value="">Выберите компанию</option>
+                        <option value="arenda">Аренда ПЛЮС</option>
+                        <option value="pro">ПРО-Интерактив</option>
+                        <option value="art">АРТ-Актив</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="manager">Менеджер *</label>
+                    <select id="manager" name="manager" required disabled>
+                        <option value="">Сначала выберите компанию</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="clientName">Имя клиента *</label>
+                    <input type="text" id="clientName" name="clientName" placeholder="Введите имя клиента" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="clientPhone">Номер телефона клиента *</label>
+                    <input type="tel" id="clientPhone" name="clientPhone" placeholder="+7-___-___-__-__" required>
+                    <small class="form-hint">Формат: +7-XXX-XXX-XX-XX</small>
+                </div>
+                <div class="form-group">
+                    <label>Дата мероприятия *</label>
+                    <div class="date-range">
+                        <div class="date-input-group">
+                            <label for="eventDateStart">Дата начала *</label>
+                            <input type="date" id="eventDateStart" name="eventDateStart" required>
+                        </div>
+                        <div class="date-input-group">
+                            <label for="eventDateEnd">Дата окончания</label>
+                            <input type="date" id="eventDateEnd" name="eventDateEnd">
+                        </div>
+                    </div>
+                    <small class="form-hint">Если мероприятие однодневное, заполните только дату начала</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventComment">Комментарий к мероприятию</label>
+                    <textarea id="eventComment" name="eventComment"
+                              placeholder="Дополнительная информация о мероприятии"
+                              rows="2"></textarea>
+                </div>
+                
+            </section>
+            
+            <!-- Продуктовые направления -->
+            <section class="form-section">
+                <h2>Продуктовые направления</h2>
+                
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="masterClasses" name="directions" value="masterClasses">
+                            <span class="checkmark"></span>
+                            Мастер-классы
+                        </label>
+                        
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="decor" name="directions" value="decor">
+                            <span class="checkmark"></span>
+                            Декор
+                        </label>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Секция мастер-классов -->
+            <section id="masterClassSection" class="form-section conditional-section" style="display: none;">
+                <h3>Мастер-классы</h3>
+                
+                <div class="form-group">
+                    <label for="masterClassRequests">Запрос мастер-классов</label>
+                    <input type="text" id="masterClassRequests" name="masterClassRequests"
+                           placeholder="Введите название мастер-класса"
+                           list="masterClassSuggestions">
+                    <datalist id="masterClassSuggestions">
+                        <option value="Арома-саше (мешочки)">Арома-саше (мешочки)</option>
+                        <option value="Арома-саше (воск)">Арома-саше (воск)</option>
+                        <option value="Ароматизатор для авто">Ароматизатор для авто</option>
+                        <option value="Ароматизатор для дома">Ароматизатор для дома</option>
+                        <option value="Бальзам для губ">Бальзам для губ</option>
+                        <option value="Банные веники">Банные веники</option>
+                        <option value="Бирдекель">Бирдекель</option>
+                        <option value="Бисероплетение">Бисероплетение</option>
+                        <option value="Блек тач арт">Блек тач арт</option>
+                        <option value="Бомбочки для ванн">Бомбочки для ванн</option>
+                        <option value="Букеты из конфет">Букеты из конфет</option>
+                        <option value="Бутоньерки">Бутоньерки</option>
+                        <option value="Бутоньерки живые">Бутоньерки живые</option>
+                        <option value="Брелоки">Брелоки</option>
+                        <option value="Валяние">Валяние</option>
+                        <option value="Буквы сухоцветы">Буквы сухоцветы</option>
+                        <option value="Ветродуи-вертушки">Ветродуи-вертушки</option>
+                        <option value="Венки живые цветы">Венки живые цветы</option>
+                        <option value="Венки искусственные цветы">Венки искусственные цветы</option>
+                        <option value="Выжигание по дереву шкатулки">Выжигание по дереву шкатулки</option>
+                        <option value="Выжигание по дереву спилы">Выжигание по дереву спилы</option>
+                        <option value="Выжигание по дереву значки">Выжигание по дереву значки</option>
+                        <option value="Вязание узлов">Вязание узлов</option>
+                        <option value="Галстук-бабочка">Галстук-бабочка</option>
+                        <option value="Георгиевская лента">Георгиевская лента</option>
+                        <option value="Декупаж">Декупаж</option>
+                        <option value="Декор мини кокошника">Декор мини кокошника</option>
+                        <option value="Декор фоторамок">Декор фоторамок</option>
+                        <option value="Денежное панно">Денежное панно</option>
+                        <option value="Жетон гравировка">Жетон гравировка</option>
+                        <option value="Живопись (холст на картоне, грунтованный 20х20\25х25\20х30)">Живопись (холст на картоне, грунтованный 20х20\25х25\20х30)</option>
+                        <option value="Закатные значки">Закатные значки</option>
+                        <option value="Закладка для книг">Закладка для книг</option>
+                        <option value="Зелье с сухоцветами">Зелье с сухоцветами</option>
+                        <option value="Игрушка-капитошка">Игрушка-капитошка</option>
+                        <option value="Игрушки из лыка">Игрушки из лыка</option>
+                        <option value="Игрушки из фетра">Игрушки из фетра</option>
+                        <option value="Имбирные пряники">Имбирные пряники</option>
+                        <option value="Капитошка">Капитошка</option>
+                        <option value="Карта желаний">Карта желаний</option>
+                        <option value="Кожанные аксессуары">Кожанные аксессуары</option>
+                        <option value="Ковровая вышивка">Ковровая вышивка</option>
+                        <option value="Калейдоскоп">Калейдоскоп</option>
+                        <option value="Космос в банке">Космос в банке</option>
+                        <option value="Купаж из специй">Купаж из специй</option>
+                        <option value="Лепка из пластилина">Лепка из пластилина</option>
+                        <option value="Леттеринг">Леттеринг</option>
+                        <option value="Лепка из соленого теста">Лепка из соленого теста</option>
+                        <option value="Ловец снов">Ловец снов</option>
+                        <option value="Магниты стеклянные 3 см (кабашоны)">Магниты стеклянные 3 см (кабашоны)</option>
+                        <option value="Марморирование (эбру)">Марморирование (эбру)</option>
+                        <option value="Маски из картона">Маски из картона</option>
+                        <option value="Морской узел">Морской узел</option>
+                        <option value="Моделирование из воздушных шаров">Моделирование из воздушных шаров</option>
+                        <option value="Мыло">Мыло</option>
+                        <option value="Настойки на водке">Настойки на водке</option>
+                        <option value="Ободки с цветами (иск.)">Ободки с цветами (иск.)</option>
+                        <option value="Ободки с цветами (жив.)">Ободки с цветами (жив.)</option>
+                        <option value="Оригами">Оригами</option>
+                        <option value="Оригами из купюр">Оригами из купюр</option>
+                        <option value="Открытки">Открытки</option>
+                        <option value="Открытка скрабукинг">Открытка скрабукинг</option>
+                        <option value="Парфюм">Парфюм</option>
+                        <option value="Песочная картина">Песочная картина</option>
+                        <option value="Полимерная глина лепка">Полимерная глина лепка</option>
+                        <option value="Пивной букет из закусок">Пивной букет из закусок</option>
+                        <option value="Пивной букет из рыбы">Пивной букет из рыбы</option>
+                        <option value="Рисование вином">Рисование вином</option>
+                        <option value="Рисование кофе">Рисование кофе</option>
+                        <option value="Рисование песком в бутылках">Рисование песком в бутылках</option>
+                        <option value="Роспись воздушных змеев">Роспись воздушных змеев</option>
+                        <option value="Сборка воздушных змеев">Сборка воздушных змеев</option>
+                        <option value="Роспись гипсовых фигурок">Роспись гипсовых фигурок</option>
+                        <option value="Роспись деревянных спилов">Роспись деревянных спилов</option>
+                        <option value="Роспись деревянных ложек">Роспись деревянных ложек</option>
+                        <option value="Роспись значков">Роспись значков</option>
+                        <option value="Роспись кепок">Роспись кепок</option>
+                        <option value="Роспись панамок">Роспись панамок</option>
+                        <option value="Роспись кружек">Роспись кружек</option>
+                        <option value="Роспись футболок">Роспись футболок</option>
+                        <option value="Роспись толстовок">Роспись толстовок</option>
+                        <option value="Роспись джинсовок">Роспись джинсовок</option>
+                        <option value="Роспись шопперов">Роспись шопперов</option>
+                        <option value="Роспись керамики (тарелки)">Роспись керамики (тарелки)</option>
+                        <option value="Роспись птичек-свистулек">Роспись птичек-свистулек</option>
+                        <option value="Роспись фрисби">Роспись фрисби</option>
+                        <option value="Роспись касок">Роспись касок</option>
+                        <option value="Рисование текстурной пастой">Рисование текстурной пастой</option>
+                        <option value="Сад хороших привычек">Сад хороших привычек</option>
+                        <option value="Сбор самолетиков">Сбор самолетиков</option>
+                        <option value="Сборка деревянных моделей">Сборка деревянных моделей</option>
+                        <option value="Самокрутки">Самокрутки</option>
+                        <option value="Свечи в банке">Свечи в банке</option>
+                        <option value="Свечи из вощины">Свечи из вощины</option>
+                        <option value="Скворечники">Скворечники</option>
+                        <option value="Скраб">Скраб</option>
+                        <option value="Слаймы">Слаймы</option>
+                        <option value="Соль для ванн">Соль для ванн</option>
+                        <option value="Стринг арт">Стринг арт</option>
+                        <option value="Сухие духи">Сухие духи</option>
+                        <option value="Топиарий">Топиарий</option>
+                        <option value="Фенечки">Фенечки</option>
+                        <option value="Флорариум">Флорариум</option>
+                        <option value="Фляга гравировка">Фляга гравировка</option>
+                        <option value="Чайный купаж">Чайный купаж</option>
+                        <option value="Чайный купаж (3 шт)">Чайный купаж (3 шт)</option>
+                        <option value="Чайный купаж (5 шт)">Чайный купаж (5 шт)</option>
+                        <option value="Шитье игрушек">Шитье игрушек</option>
+                        <option value="Эко-кормушка">Эко-кормушка</option>
+                        <option value="Хлопушки болельщиков">Хлопушки болельщиков</option>
+                        <option value="Создание плакатов">Создание плакатов</option>
+                        <option value="Мед с орехами">Мед с орехами</option>
+                        <option value="Бижутерия из эпоксидной смолы">Бижутерия из эпоксидной смолы</option>
+                        <option value="Браслеты из натуральных камней">Браслеты из натуральных камней</option>
+                        <option value="Макраме">Макраме</option>
+                        <option value="Бусы из бусин">Бусы из бусин</option>
+                        <option value="3Д ручка">3Д ручка</option>
+                        <option value="Футбольные мячи">Футбольные мячи</option>
+                        <option value="Клавиатура с воздушным пластилином - кастом кейкапов">Клавиатура с воздушным пластилином - кастом кейкапов</option>
+                        <option value="Лепка воздушным пластилином">Лепка воздушным пластилином</option>
+                        <option value="Шлемы и мечи из картона">Шлемы и мечи из картона</option>
+                        <option value="Роспись тельняшек">Роспись тельняшек</option>
+                        <option value="Картина из пластилина">Картина из пластилина</option>
+                        <option value="Ободки с декором">Ободки с декором</option>
+                        <option value="Пряничный домик роспись глазурью">Пряничный домик роспись глазурью</option>
+                        <option value="Декор и роспись елочного шара">Декор и роспись елочного шара</option>
+                        <option value="Снежный шар (пластик)">Снежный шар (пластик)</option>
+                        <option value="Декор на стол новогодний (ветки + деревянный ящик)">Декор на стол новогодний (ветки + деревянный ящик)</option>
+                        <option value="Давид фигурки разные гипс">Давид фигурки разные гипс</option>
+                        <option value="Повязка гэтсби">Повязка гэтсби</option>
+                        <option value="Бабочка джаз">Бабочка джаз</option>
+                        <option value="Декупаж свечей салфетками">Декупаж свечей салфетками</option>
+                        <option value="Гончарная мастерская">Гончарная мастерская</option>
+                        <option value="Картина из гипса">Картина из гипса</option>
+                        <option value="Игрушки из ткани">Игрушки из ткани</option>
+                        <option value="Неоновые вывески 15х15 см">Неоновые вывески 15х15 см</option>
+                        <option value="Лава лампа">Лава лампа</option>
+                        <option value="Тыква-светильник">Тыква-светильник</option>
+                        <option value="Браслеты с шармами">Браслеты с шармами</option>
+                        <option value="Набор мини-холст">Набор мини-холст</option>
+                        <option value="Часы из пластинок">Часы из пластинок</option>
+                        <option value="Декор для дома (дер. фигурки с шерстью)">Декор для дома (дер. фигурки с шерстью)</option>
+                        <option value="Роспись тыкв">Роспись тыкв</option>
+                        <option value="Букет в тыкве">Букет в тыкве</option>
+                        <option value="Новогодний декор для дома (олени елки )">Новогодний декор для дома (олени елки)</option>
+                        <option value="Новогодние рождественские венки (искусс ель)">Новогодние рождественские венки (искусс ель)</option>
+                        <option value="Игрушки из натур.материалов">Игрушки из натур.материалов</option>
+                        <option value="Вечный календарь">Вечный календарь</option>
+                        <option value="Снеговики из носков">Снеговики из носков</option>
+                        <option value="Роспись подковы">Роспись подковы</option>
+                        <option value="Новогодняя мозаика (битое стекло)">Новогодняя мозаика (битое стекло)</option>
+                        <option value="Фонарик бумажный китайский роспись">Фонарик бумажный китайский роспись</option>
+                        <option value="Живопись тушью на рисовой бумаге">Живопись тушью на рисовой бумаге</option>
+                        <option value="Флорариум с фигурками панд">Флорариум с фигурками панд</option>
+                        <option value="Роспись китайского веера">Роспись китайского веера</option>
+                        <option value="Сборная картина">Сборная картина</option>
+                        <option value="Сухая пена для ванны">Сухая пена для ванны</option>
+                        <option value="Глинтвейн с кружкой">Глинтвейн с кружкой</option>
+                        <option value="Декор валенок">Декор валенок</option>
+                        <option value="Декор новогодних шапок">Декор новогодних шапок</option>
+                        <option value="Елочная игрушка со светодиодами">Елочная игрушка со светодиодами</option>
+                        <option value="Декор и роспись. Фарфоровая змея елочная игрушка">Декор и роспись. Фарфоровая змея елочная игрушка</option>
+                        <option value="Новогодние рождественские венки (живая ель)">Новогодние рождественские венки (живая ель)</option>
+                        <option value="Декор диадемы">Декор диадемы</option>
+                        <option value="Новогодние карнавальные маски">Новогодние карнавальные маски</option>
+                        <option value="Вязание на пальцах">Вязание на пальцах</option>
+                        <option value="Роспись деревянных медалей">Роспись деревянных медалей</option>
+                        <option value="Роспись мини-сноубордов">Роспись мини-сноубордов</option>
+                        <option value="Еловая композиция">Еловая композиция</option>
+                        <option value="Подсвечник с живой елью">Подсвечник с живой елью</option>
+                        <option value="Роспись пластинок">Роспись пластинок</option>
+                        <option value="Роспись книжных листов">Роспись книжных листов</option>
+                        <option value="Плетение авоськи">Плетение авоськи</option>
+                        <option value="Сухие духи в металлической баночке">Сухие духи в металлической баночке</option>
+                        <option value="Бирдекель роспись и выжигание">Бирдекель роспись и выжигание</option>
+                        <option value="Повязка на голову с перьями">Повязка на голову с перьями</option>
+                        <option value="Роспись клюшек (детская)">Роспись клюшек (детская)</option>
+                        <option value="Роспись клюшек (взрослая)">Роспись клюшек (взрослая)</option>
+                        <option value="Ньютоновская жидкость">Ньютоновская жидкость</option>
+                        <option value="Выжигание по разделочным доскам">Выжигание по разделочным доскам</option>
+                        <option value="Кормушка сборная (роспись)">Кормушка сборная (роспись)</option>
+                        <option value="Поделки из помпонов">Поделки из помпонов</option>
+                        <option value="Мужские браслеты">Мужские браслеты</option>
+                        <option value="Роспись камней">Роспись камней</option>
+                        <option value="Булава цирковая роспись">Булава цирковая роспись</option>
+                        <option value="Кольца для жонглирования роспись">Кольца для жонглирования роспись</option>
+                        <option value="Мяч для жонглирования">Мяч для жонглирования</option>
+                        <option value="Сборка деревянной модели елки">Сборка деревянной модели елки</option>
+                        <option value="Панно новогоднее">Панно новогоднее</option>
+                        <option value="Чай для ванны (купаж)">Чай для ванны (купаж)</option>
+                        <option value="Обвес на сумку">Обвес на сумку</option>
+                        <option value="Объемные фигуры из пенопласта">Объемные фигуры из пенопласта</option>
+                        <option value="Декор змеек">Декор змеек</option>
+                        <option value="Брошь (щелкунчик)">Брошь (щелкунчик)</option>
+                        <option value="Новогодний декор кашпо">Новогодний декор кашпо</option>
+                        <option value="Упаковка подарков">Упаковка подарков</option>
+                        <option value="Рука болельщика (декор и роспись)">Рука болельщика (декор и роспись)</option>
+                        <option value="Шапка болельщика с рожками">Шапка болельщика с рожками</option>
+                        <option value="Карнавальные маски">Карнавальные маски</option>
+                        <option value="Кокошник в русско-народном стиле">Кокошник в русско-народном стиле</option>
+                        <option value="Бусы в русско-народном стиле">Бусы в русско-народном стиле</option>
+                        <option value="Сережки в русско-народномстиле (бисер)">Сережки в русско-народномстиле (бисер)</option>
+                        <option value="Барсетка / поясная сумка">Барсетка / поясная сумка</option>
+                        <option value="Фоторамки из подручных материалов">Фоторамки из подручных материалов</option>
+                        <option value="Брелки с карабином">Брелки с карабином</option>
+                        <option value="Плетение из бересты">Плетение из бересты</option>
+                        <option value="Кукла хороводница">Кукла хороводница</option>
+                        <option value="Баба на чайник">Баба на чайник</option>
+                        <option value="Куклы из ткани">Куклы из ткани</option>
+                        <option value="Акриловая краска">Акриловая краска</option>
+                        <option value="Декор банных шапок">Декор банных шапок</option>
+                        <option value="Мишка флюид арт">Мишка флюид арт</option>
+                        <option value="Сборка и роспись деревянных моделей">Сборка и роспись деревянных моделей</option>
+                        <option value="Сборка и роспись самолетика из пенопласта">Сборка и роспись самолетика из пенопласта</option>
+                        <option value="Роспись деревянной матрешки брелок">Роспись деревянной матрешки брелок</option>
+                        <option value="Роспись волейбольного мяча">Роспись волейбольного мяча</option>
+                        <option value="Роспись баскетбольного мяча">Роспись баскетбольного мяча</option>
+                        <option value="Букеты из живых цветов">Букеты из живых цветов</option>
+                        <option value="Букеты из сухоцветов">Букеты из сухоцветов</option>
+                        <option value="Букеты из искусственных цветов">Букеты из искусственных цветов</option>
+                        <option value="Лежанки для собак">Лежанки для собак</option>
+                        <option value="Багажная бирка из коже">Багажная бирка из коже</option>
+                        <option value="Цветочный алфавит">Цветочный алфавит</option>
+                        <option value="Обложка на паспорт">Обложка на паспорт</option>
+                        <option value="Старорусские венки">Старорусские венки</option>
+                        <option value="Кокошник из фетра">Кокошник из фетра</option>
+                        <option value="Рисование на витраже">Рисование на витраже</option>
+                        <option value="Резка по дереву">Резка по дереву</option>
+                        <option value="Витражи кружка">Витражи кружка</option>
+                        <option value="Витражи рамка">Витражи рамка</option>
+                        <option value="Витражи подсвечник-фонарь">Витражи подсвечник-фонарь</option>
+                        <option value="Иероглифы тушью">Иероглифы тушью</option>
+                        <option value="Зеленый домовой">Зеленый домовой</option>
+                        <option value="Окопная блиндажная свеча">Окопная блиндажная свеча</option>
+                        <option value="Пано с мхом">Пано с мхом</option>
+                        <option value="Роспись матрешек">Роспись матрешек</option>
+                        <option value="Роспись зонта">Роспись зонта</option>
+                        <option value="Искусственные цветы (фоамиран)">Искусственные цветы (фоамиран)</option>
+                        <option value="Фигурный флорариум">Фигурный флорариум</option>
+                        <option value="Ботанический барельеф">Ботанический барельеф</option>
+                        <option value="Роспись игрушечных балалаек">Роспись игрушечных балалаек</option>
+                        <option value="Настойки (джин)">Настойки (джин)</option>
+                        <option value="Настойки (коньяк)">Настойки (коньяк)</option>
+                        <option value="Роспись и сборка деревянного конструктора">Роспись и сборка деревянного конструктора</option>
+                        <option value="Цветы в глицирине">Цветы в глицирине</option>
+                        <option value="Декор разделочных досок">Декор разделочных досок</option>
+                        <option value="Роспись панам">Роспись панам</option>
+                        <option value="Роспись рюкзаков">Роспись рюкзаков</option>
+                        <option value="Картина из мозаики">Картина из мозаики</option>
+                        <option value="Декор ковбойских шляп">Декор ковбойских шляп</option>
+                        <option value="Таба лапка">Таба лапка</option>
+                        <option value="Кастомизация дождевиков">Кастомизация дождевиков</option>
+                        <option value="Флип-бук">Флип-бук</option>
+                        <option value="Палочки для мыльных пузырей">Палочки для мыльных пузырей</option>
+                        <option value="Рисование на акварельной бумаге">Рисование на акварельной бумаге</option>
+                        <option value="Рисование на шарах">Рисование на шарах</option>
+                        <option value="Адресник для собак">Адресник для собак</option>
+                    </datalist>
+                    <small class="form-hint">Введите название мастер-класса</small>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="participants">Участники (количество)</label>
+                        <input type="number" id="participants" name="participants" min="1" placeholder="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="duration">Длительность (часы)</label>
+                        <input type="number" id="duration" name="duration" min="1" step="1" placeholder="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="masters">Мастера (количество)</label>
+                        <input type="number" id="masters" name="masters" min="0" placeholder="0">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="masterClassComment">Комментарий</label>
+                    <textarea id="masterClassComment" name="masterClassComment" 
+                              placeholder="Дополнительные пожелания или комментарии" 
+                              rows="3"></textarea>
+                </div>
+            </section>
+            
+            <!-- Секция декора -->
+            <section id="decorSection" class="form-section conditional-section" style="display: none;">
+                <h3>Декор</h3>
+                
+                <div class="form-group">
+                    <label for="decorComment">Комментарий</label>
+                    <textarea id="decorComment" name="decorComment" 
+                              placeholder="Описание требований к декору" 
+                              rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="decorImages">Приложить изображения</label>
+                    <div class="file-upload-area" id="fileUploadArea">
+                        <div class="upload-placeholder">
+                            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7,10 12,15 17,10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            <p>Перетащите изображения сюда или <span class="upload-link">выберите файлы</span></p>
+                            <small>Поддерживаются форматы: JPG, PNG, GIF (макс. 10MB каждый)</small>
+                        </div>
+                        <input type="file" id="decorImages" name="decorImages" multiple accept="image/*" style="display: none;">
+                        <div id="uploadedFiles" class="uploaded-files"></div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Кнопка отправки -->
+            <section class="form-section">
+                <button type="submit" class="submit-btn">Отправить данные</button>
+            </section>
+        </form>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
