@@ -1,11 +1,7 @@
-version: '3.8'  # Обязательно с отступом слева и двоеточием
-
-services:  # Ключевой элемент, должен быть на верхнем уровне
+version: '3.8'
+services:
   web:
-    image: nginx:alpine  # Правильный отступ (2 пробела)
+    image: nginx:alpine
     ports:
-      - "80:80"  # Элементы списка с "-"
-    volumes:
-      - ./html:/usr/share/nginx/html
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - "80:80"
     restart: unless-stopped
