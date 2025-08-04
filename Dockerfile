@@ -1,11 +1,11 @@
-# Use the official Nginx image
 FROM nginx:alpine
 
-# Copy the HTML files to the Nginx html directory
+# Copy the HTML files
 COPY html/ /usr/share/nginx/html/
 
-# Expose port 80
+# Copy custom Nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 EXPOSE 80
 
-# Default command to start Nginx
 CMD ["nginx", "-g", "daemon off;"]

@@ -2,11 +2,13 @@ version: '3'
 
 services:
   web:
-    image: nginx:alpine
-    user: "nginx:nginx"
-    container_name: my-webpage
+    image: yourusername/my-webpage:latest
     ports:
-      - "80:80"
+      - "80:80"  # Map to port 8080 on host to avoid conflicts
     restart: unless-stopped
-    volumes:
-      - ./html:/usr/share/nginx/html
+    networks:
+      - web-network
+
+networks:
+  web-network:
+    driver: bridge
