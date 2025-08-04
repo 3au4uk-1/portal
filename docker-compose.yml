@@ -2,9 +2,9 @@ version: '3'
 
 services:
   web:
-    image: nginx:alpine
+    build: .  # This tells Docker to build using your Dockerfile
     ports:
-      - "80:80"  # Map to port 8080 on host to avoid conflicts
+      - "80:80"
     restart: unless-stopped
     networks:
       - web-network
