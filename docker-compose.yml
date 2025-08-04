@@ -2,7 +2,7 @@ version: '3'
 
 services:
   web:
-    image: yourusername/my-webpage:latest
+    image: nginx:alpine
     ports:
       - "80:80"  # Map to port 8080 on host to avoid conflicts
     restart: unless-stopped
