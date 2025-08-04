@@ -2,9 +2,10 @@ version: '3'
 
 services:
   web:
-    build: .
-    image: my-webpage
+    image: nginx:alpine
     container_name: my-webpage
     ports:
       - "80:80"
     restart: unless-stopped
+    volumes:
+      - ./html:/usr/share/nginx/html
