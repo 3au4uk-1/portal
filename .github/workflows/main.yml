@@ -3,7 +3,7 @@ name: Docker Image CI for GHCR
 on:
   push:
     branches:
-      - main
+      - test
 
 jobs:
   build_and_publish:
@@ -13,5 +13,5 @@ jobs:
       - name: Build and push image
         run: |
           docker login --username 3au4uk-1 --password ${{ secrets.GH_PAT }} ghcr.io
-          docker build . --tag ghcr.io/3au4uk-1/portal:latest
-          docker push ghcr.io/3au4uk-1/portal:latest
+          docker build . --tag ghcr.io/3au4uk-1/portaltest:latest
+          docker push ghcr.io/3au4uk-1/portaltest:latest
