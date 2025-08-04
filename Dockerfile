@@ -8,7 +8,7 @@ COPY html /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Порт, который будет слушать nginx
-EXPOSE 80
+EXPOSE 443
 
 # Команда для запуска nginx
 CMD ["nginx", "-g", "daemon off;"]
